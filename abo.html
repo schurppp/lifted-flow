@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lifted Flow - Abo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="info">
+  <a class="skip-link" href="#main-content">Zum Inhalt springen</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a class="logo logo-link" href="index.html">Lifted</a>
+      <div class="nav-links">
+        <a href="index.html">Features</a>
+        <a href="training.html">Training</a>
+        <a href="ernaehrung.html">Ernaehrung</a>
+        <a href="lernen.html">Lernen</a>
+        <a href="abo.html" aria-current="page">Abo</a>
+        <a href="faq.html">FAQ</a>
+        <a href="kontakt.html">Kontakt</a>
+      </div>
+      <div class="nav-actions">
+        <a class="button ghost" href="login.html">Anmelden</a>
+        <a class="button primary" href="signup.html">Konto erstellen</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="hero">
+      <div class="hero-content reveal">
+        <p class="eyebrow">Abo</p>
+        <h1>Ein Preis fuer deinen kompletten Flow.</h1>
+        <p class="lead">Lifted ist ein Abo-Modell. Training, Ernaehrung, Lernen und Live Tracking sind in einem fairen Monatspreis enthalten.</p>
+        <div class="cta">
+          <a class="button primary" href="signup.html">Abo starten</a>
+          <a class="button ghost" href="login.html">Anmelden</a>
+        </div>
+      </div>
+      <div class="hero-card reveal delay-1">
+        <div class="card-top"><span class="pill">Transparent</span><span class="tag">Abo</span></div>
+        <div class="mini-schedule">
+          <div class="schedule-row"><span>Start</span><strong>Jederzeit kuendbar</strong></div>
+          <div class="schedule-row"><span>Inhalt</span><strong>Alles inklusive</strong></div>
+          <div class="schedule-row"><span>Support</span><strong>Direkt erreichbar</strong></div>
+        </div>
+        <div class="mini-footer">
+          <div><p class="mini-label">Preis</p><p class="mini-value">ab 11.90 EUR</p></div>
+          <div><p class="mini-label">Zahlung</p><p class="mini-value">Monat oder Jahr</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="detail-section" x-data="{ plan: 'yearly' }">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Preise</p>
+        <h2>Fair, klar und ohne versteckte Kosten.</h2>
+        <p class="lead">Beide Optionen enthalten alle Features. Du entscheidest nur, ob du monatlich oder jaehrlich zahlst.</p>
+      </div>
+      <div class="plan-toggle" role="group" aria-label="Abo Auswahl" :data-plan="plan">
+        <span class="plan-toggle-indicator" aria-hidden="true"></span>
+        <button class="plan-toggle-button" type="button" @click="plan = 'monthly'" :class="{ active: plan === 'monthly' }" :aria-pressed="plan === 'monthly'">Monatlich</button>
+        <button class="plan-toggle-button" type="button" @click="plan = 'yearly'" :class="{ active: plan === 'yearly' }" :aria-pressed="plan === 'yearly'">Jaehrlich</button>
+      </div>
+      <p class="plan-summary" x-text="plan === 'monthly' ? 'Aktiver Plan: Monatlich - 14.90 EUR/Monat' : 'Aktiver Plan: Jaehrlich - 11.90 EUR/Monat'" role="status" aria-live="polite"></p>
+      <div class="pricing-grid">
+        <article class="price-card reveal" :class="{ highlight: plan === 'monthly' }">
+          <div class="price-header"><h3>Monatlich</h3><span class="price-badge">Flexibel</span></div>
+          <p class="price">14.90 EUR<span>Monat</span></p>
+          <p class="muted">Kuendbar zum Ende des Monats.</p>
+          <ul class="price-list">
+            <li>Personalisierte Trainingsplaene</li>
+            <li>Meal Planning &amp; Einkaufsliste</li>
+            <li>Live Tracking in Echtzeit</li>
+            <li>Lerninhalte und eigene Karten</li>
+          </ul>
+          <a class="button primary" href="signup.html">Abo starten</a>
+        </article>
+        <article class="price-card reveal delay-1" :class="{ highlight: plan === 'yearly' }">
+          <div class="price-header"><h3>Jaehrlich</h3><span class="price-badge">Spare 20%</span></div>
+          <p class="price">11.90 EUR<span>Monat</span></p>
+          <p class="muted">Abrechnung jaehrlich, alle Features inklusive.</p>
+          <ul class="price-list">
+            <li>Alles aus dem Monats-Abo</li>
+            <li>Priorisierter Support</li>
+            <li>Exklusive Trainingsplaene</li>
+            <li>Bonus-Content fuer Lernen</li>
+          </ul>
+          <a class="button primary" href="signup.html">Jaehrlich starten</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Warum Abo</p>
+        <h2>Ein System, das mit dir waechst.</h2>
+      </div>
+      <div class="detail-grid">
+        <article class="detail-card reveal"><h3>Stetige Updates</h3><p>Neue Trainingsmodule und Lernsets kommen regelmaessig.</p></article>
+        <article class="detail-card reveal delay-1"><h3>Alles in einem</h3><p>Keine einzelnen Tools mehr fuer Training und Meal Planning.</p></article>
+        <article class="detail-card reveal delay-2"><h3>Faire Kosten</h3><p>Ein Preis pro Monat, klar kalkulierbar und jederzeit kuendbar.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand"><span class="footer-title">Lifted</span><p>Training, Ernaehrung und Lernen in einem Flow.</p></div>
+      <div class="footer-links">
+        <a href="training.html">Training</a>
+        <a href="ernaehrung.html">Ernaehrung</a>
+        <a href="lernen.html">Lernen</a>
+        <a href="abo.html">Abo</a>
+        <a href="faq.html">FAQ</a>
+        <a href="kontakt.html">Kontakt</a>
+        <a href="impressum.html">Impressum</a>
+      </div>
+      <div class="footer-meta"><span>Lifted Flow</span><span>Moderne Planung fuer Koerper und Kopf.</span></div>
+    </div>
+  </footer>
+</body>
+</html>
