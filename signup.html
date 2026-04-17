@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lifted Flow - Konto erstellen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="info">
+  <a class="skip-link" href="#main-content">Zum Inhalt springen</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a class="logo logo-link" href="index.html">Lifted</a>
+      <div class="nav-links">
+        <a href="index.html">Features</a>
+        <a href="training.html">Training</a>
+        <a href="ernaehrung.html">Ernaehrung</a>
+        <a href="lernen.html">Lernen</a>
+        <a href="abo.html">Abo</a>
+        <a href="faq.html">FAQ</a>
+        <a href="kontakt.html">Kontakt</a>
+      </div>
+      <div class="nav-actions">
+        <a class="button ghost" href="login.html">Anmelden</a>
+        <a class="button primary" href="signup.html" aria-current="page">Konto erstellen</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="auth">
+      <div class="auth-card reveal" x-data="{ name: '', email: '', password: '', showPassword: false, error: '' }">
+        <p class="eyebrow">Konto erstellen</p>
+        <h1>Starte deinen Flow.</h1>
+        <p class="lead">Erstelle dein Konto und erhalte einen Plan, der Training, Ernaehrung und Lernen verbindet.</p>
+
+        <form class="auth-form" action="app.html" method="get" @submit.prevent>
+          <label>
+            <span>Name</span>
+            <input type="text" name="name" placeholder="Vorname Nachname" required autocomplete="name" x-model="name">
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" placeholder="du@example.com" required autocomplete="email" inputmode="email" x-model="email">
+          </label>
+          <label>
+            <span>Passwort</span>
+            <div class="input-with-toggle">
+              <input :type="showPassword ? 'text' : 'password'" placeholder="Mind. 8 Zeichen" required autocomplete="new-password" x-model="password">
+              <button class="toggle-link" type="button" @click="showPassword = !showPassword" :aria-pressed="showPassword" x-text="showPassword ? 'Verbergen' : 'Anzeigen'"></button>
+            </div>
+            <p class="form-hint" x-show="password.length && password.length < 8" x-cloak>Mind. 8 Zeichen fuer ein sicheres Passwort.</p>
+          </label>
+          <p class="form-error" x-show="error" x-text="error" x-cloak role="alert" aria-live="assertive"></p>
+          <div class="auth-actions">
+            <button class="button primary" type="submit" :disabled="!name || !email || password.length < 8" :class="{ 'is-disabled': !name || !email || password.length < 8 }">Konto erstellen</button>
+            <a class="button ghost" href="login.html">Anmelden</a>
+          </div>
+        </form>
+      </div>
+
+      <aside class="auth-aside reveal delay-1">
+        <h2>Was du bekommst.</h2>
+        <p class="lead">Ein klares System, das dich durch Training, Ernaehrung und Lernen fuehrt.</p>
+        <ul class="info-list">
+          <li>Personalisierte Trainingsplaene und smarte Mahlzeiten.</li>
+          <li>Adaptive Plaene und Live Tracking in Echtzeit.</li>
+          <li>Meal Timing, das deine Sessions unterstuetzt.</li>
+          <li>Lernimpulse in Pausen, ohne Stress.</li>
+        </ul>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand"><span class="footer-title">Lifted</span><p>Training, Ernaehrung und Lernen in einem Flow.</p></div>
+      <div class="footer-links">
+        <a href="training.html">Training</a>
+        <a href="ernaehrung.html">Ernaehrung</a>
+        <a href="lernen.html">Lernen</a>
+        <a href="abo.html">Abo</a>
+        <a href="faq.html">FAQ</a>
+        <a href="kontakt.html">Kontakt</a>
+        <a href="impressum.html">Impressum</a>
+      </div>
+      <div class="footer-meta"><span>Lifted Flow</span><span>Moderne Planung fuer Koerper und Kopf.</span></div>
+    </div>
+  </footer>
+</body>
+</html>
